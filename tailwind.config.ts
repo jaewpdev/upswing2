@@ -15,7 +15,11 @@ const config: Config = {
       colors: {
         brand: {
           yellow: '#FFDF38',
-          orange: '#FF7C2E',
+          orange: {
+            500: "#FF7C2E",
+            400: "#E56F29",
+            200: "#CC6324"
+          },
           blue: '#428EC5'
         }
       },
