@@ -114,7 +114,7 @@ export default function Navigation() {
         mobileNavigationSliderIsOpen ? "right-0" : "right-full"
       }`}
     >
-      <nav className="w-full flex flex-col container mx-auto">
+      <nav className="w-full flex flex-col container">
         {navItems.map(({ label, id, route }) => (
           <Link
             key={label}
@@ -146,7 +146,7 @@ export default function Navigation() {
           isScrolled ? "border-b-gray-200" : "border-b-transparent"
         }`}
       >
-        <div className="container mx-auto flex items-center">
+        <div className="container flex items-center">
           <HamburgerMenu
             isOpen={mobileNavigationSliderIsOpen}
             setIsOpen={setMobileNavigationSliderIsOpen}
@@ -162,7 +162,7 @@ export default function Navigation() {
               >
                 <button
                   onClick={(e) => handleClick(e, id, route)}
-                  className="text-gray-700 group-hover:text-black transition-200"
+                  className="text-gray-700 group-hover:text-black transition-200 tracking-tight"
                 >
                   {label}
                 </button>

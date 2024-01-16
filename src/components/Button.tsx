@@ -19,7 +19,7 @@ export default function Button({
 }) {
   const classes = {
     shared: "transition-200 flex items-center justify-center",
-    primary: "bg-brand-orange-500 hover:bg-brand-orange-400 text-white rounded",
+    primary: "bg-green-500 hover:bg-green-600 text-white rounded",
     secondary: "",
     outline: "",
   };

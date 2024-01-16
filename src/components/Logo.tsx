@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoSVG from "../../public/upswing--logo-2.svg";
+import LogoSVG from "../../public/upswing--logo.svg";
 
 export default function Logo({ className }: { className?: string }) {
   return (
