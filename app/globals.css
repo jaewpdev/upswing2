@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 .transition-200 {
-    @apply transition-all duration-200;
+  @apply transition-all duration-200;
 }
 
 .bg-hover {
-    @apply transition-colors duration-200 hover:bg-gray-50 rounded-md;
+  @apply transition-colors duration-200 hover:bg-gray-50 rounded-md;
+}
+
+.outline-button {
+  path {
+    stroke: white;
+  }
+}
+
+p {
+  @apply md:text-lg;
 }

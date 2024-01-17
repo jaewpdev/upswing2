@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/src/components/Button";
 
-
 export default function Hero() {
   const dynamicTextAndColors: {
     text: string;
@@ -18,8 +17,8 @@ export default function Hero() {
     },
     {
       text: "Boost sales",
-      bgColor: "bg-red-200",
-      textColor: "text-red-500",
+      bgColor: "bg-violet-200",
+      textColor: "text-violet-500",
     },
     {
       text: "Save time",
@@ -37,7 +36,6 @@ export default function Hero() {
   );
   const [index, setIndex] = useState(0);
 
-
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % dynamicTextAndColors.length);
@@ -47,9 +45,11 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [index]);
 
-
   return (
-    <section className="container pt-40 lg:pt-52 flex flex-col items-center">
+    <section
+      className="container pt-20 lg:pt-40 flex flex-col items-center"
+      id="hero"
+    >
       <h1 className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight relative text-center">
         {/* <div
           className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -z-10 -translate-y-1/2 w-[100% + 2rem] transition-200 aspect-square rounded-full ${currentTextColorSet.bgColor}`}
@@ -66,7 +66,10 @@ export default function Hero() {
         </motion.span>{" "}
         <br /> with Upswing
       </h1>
-      <p className="mt-10 text-lg text-center max-w-[40ch]">Reach the customers who matter most. Upswing helps you connect with quality leads to grow your roofing business effortlessly.</p>
+      <p className="mt-10 text-center max-w-[40ch]">
+        Reach the customers who matter most. Upswing helps you connect with
+        quality leads to grow your roofing business effortlessly.
+      </p>
 
       <Button variant="primary" className="py-4 px-4 mt-10">
         Connect with us
