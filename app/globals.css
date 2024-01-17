@@ -19,3 +19,37 @@
 p {
   @apply md:text-lg;
 }
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl tracking-tighter;
+}
+
+.yellow-svg {
+  path {
+    @apply stroke-yellow-500;
+  }
+}
+
+.rose-svg {
+  path {
+    @apply stroke-rose-500;
+  }
+}
+
+.green-svg {
+  path {
+    @apply stroke-green-500;
+  }
+}
+
+.sky-svg {
+  path {
+    @apply stroke-sky-500;
+  }
+}
+
+.violet-svg {
+  path {
+    @apply stroke-violet-500;
+  }
+}

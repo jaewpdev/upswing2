@@ -59,7 +59,7 @@ export default function Goals() {
 
   return (
     <section className="container flex flex-col items-center mt-32" id="goals">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter text-center mb-6">
+      <h2 className="text-center mb-6">
         Surpass your <span className="text-green-500">goals</span> and look
         beyond
       </h2>
@@ -88,7 +88,7 @@ export default function Goals() {
       <motion.div
         className="flex flex-col items-center md:items-start md:flex-row gap-6 w-full max-w-[800px]"
         key={currentGoal.label}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
@@ -98,13 +98,15 @@ export default function Goals() {
           </h3>
           <p className="max-w-[45ch]">{currentGoal.content}</p>
         </div>
-        <Image
-          src={currentGoal.image}
-          width={400}
-          height={400}
-          quality={100}
-          alt={currentGoal.alt}
-        ></Image>
+        <div className="w-[400px] h-[400px]">
+          <Image
+            src={currentGoal.image}
+            width={400}
+            height={400}
+            quality={100}
+            alt={currentGoal.alt}
+          ></Image>
+        </div>
       </motion.div>
     </section>
   );
