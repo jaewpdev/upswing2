@@ -57,7 +57,7 @@ export default function WhatWeDo() {
   return (
     <section className="bg-white relative -z-10 -mt-20" id="what-we-do">
       <div className=" h-[300px] bg-gradient-to-b to-gray-50 from-white" />
-      <div className="bg-gray-50">
+      <div className="bg-gray-50  pb-32">
         <div className="container">
           <h2 className="text-center mb-10 sm:mb-16 md:mb-20">
             How we <span className="text-green-500">elevate</span> your business
@@ -83,8 +83,6 @@ export default function WhatWeDo() {
             )}
           </div>
         </div>
-
-        <div className="h-[1000px]" />
       </div>
     </section>
   );

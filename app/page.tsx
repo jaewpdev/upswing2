@@ -8,8 +8,8 @@ export default function Home() {
     <main className="mt-[73px]">
       <Hero />
       <Goals />
-      <RiskFree />
       <WhatWeDo />
+      <RiskFree />
     </main>
   );
 }

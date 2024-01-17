@@ -24,6 +24,10 @@ h2 {
   @apply text-3xl md:text-4xl lg:text-5xl tracking-tighter;
 }
 
+h3 {
+  @apply text-2xl md:text-3xl lg:text-4xl tracking-tight;
+}
+
 .yellow-svg {
   path {
     @apply stroke-yellow-500;
