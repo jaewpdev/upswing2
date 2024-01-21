@@ -58,7 +58,7 @@ export default function Goals() {
   const [currentGoal, setCurrentGoal] = useState(goals[0]);
 
   return (
-    <section className="container flex flex-col items-center mt-32" id="goals">
+    <section className="container flex flex-col items-center pt-32" id="goals">
       <h2 className="text-center mb-6">
         Surpass your <span className="text-green-500">goals</span> and look
         beyond

@@ -55,35 +55,40 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="bg-white relative -z-10 -mt-20" id="what-we-do">
-      <div className=" h-[300px] bg-gradient-to-b to-gray-50 from-white" />
-      <div className="bg-gray-50  pb-32">
-        <div className="container">
-          <h2 className="text-center mb-10 sm:mb-16 md:mb-20">
-            How we <span className="text-green-500">elevate</span> your business
-          </h2>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-6 sm:gap-y-20 justify-center">
-            {whatWeDoList.map(
-              ({ heading, content, Icon, iconColor, bgColor }) => (
-                <div
-                  key={heading}
-                  className="flex flex-row sm:flex-col items-start sm:items-center sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] sm:text-center"
-                >
+    <>
+      <div className=" h-[300px] bg-gradient-to-b -mt-[300px] -z-10 to-gray-50 from-white" />
+      <section className="bg-gray-50 relative pt-20" id="what-we-do">
+        <div className="  pb-32">
+          <div className="container">
+            <h2 className="text-center mb-10 sm:mb-16 md:mb-20">
+              How we <span className="text-green-500">elevate</span> your
+              business
+            </h2>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-6 sm:gap-y-20 justify-center">
+              {whatWeDoList.map(
+                ({ heading, content, Icon, iconColor, bgColor }) => (
                   <div
-                    className={`flex items-center justify-center rounded-full aspect-square min-w-[60px] w-[60px] md:w-[80px] mr-4 sm:mr-0  sm:mb-4 ${bgColor}`}
+                    key={heading}
+                    className="flex flex-row sm:flex-col items-start sm:items-center sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] sm:text-center"
                   >
-                    <Icon className={`w-7 md:w-10 ${iconColor}`} />
+                    <div
+                      className={`flex items-center justify-center rounded-full aspect-square min-w-[60px] w-[60px] md:w-[80px] mr-4 sm:mr-0  sm:mb-4 ${bgColor}`}
+                    >
+                      <Icon className={`w-7 md:w-10 ${iconColor}`} />
+                    </div>
+                    <div>
+                      <h4 className="text-lg sm:text-xl text-gray-900 sm:mb-4">
+                        {heading}
+                      </h4>
+                      <p className="text-gray-600 text-base">{content}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg sm:text-xl text-gray-900 sm:mb-4">{heading}</h4>
-                    <p className="text-gray-600 text-base">{content}</p>
-                  </div>
-                </div>
-              )
-            )}
+                )
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

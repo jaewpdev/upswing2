@@ -1,4 +1,5 @@
 import Button from "@/src/components/Button";
+import { Routes } from "@/src/models/routes";
 import Image from "next/image";
 
 export default function RiskFree() {
@@ -19,7 +20,7 @@ export default function RiskFree() {
           </div>
           <div className="flex flex-col items-center md:items-start lg:pt-6 text-center md:text-start">
             <h3 className="max-w-[23ch] mb-8">
-              Experience Our Full Services Risk-Free for Two Weeks
+              Experience our full services risk-free for two weeks
             </h3>
             <p className="max-w-[50ch] mb-4 text-gray-600">
               We&apos;re so confident in our ability to exceed your
@@ -32,7 +33,7 @@ export default function RiskFree() {
               bring, with zero cost to you.
             </p>
 
-            <Button variant="primary" className="py-4 px-4 mt-12">
+            <Button variant="primary" className="py-4 px-4 mt-12" href={Routes.SCHEDULE}>
               Connect with us
             </Button>
           </div>

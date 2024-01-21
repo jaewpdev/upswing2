@@ -9,6 +9,7 @@ import Logo from "./Logo";
 import Button from "./Button";
 import useResponsive from "../hooks/useResponsive";
 import HamburgerMenu from "./Hamburger";
+import { Routes } from "../models/routes";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -22,59 +23,48 @@ export default function Navigation() {
   const navItems: { label: string; id?: string; route: string }[] = [
     {
       label: "Goals",
-      id: "#goals",
+      id: "goals",
       route: "/",
     },
     {
       label: "What We Do",
-      id: "#what-we-do",
+      id: "what-we-do",
       route: "/",
     },
     {
       label: "Risk Free",
-      id: "#risk-free",
+      id: "risk-free",
       route: "/",
     },
     {
       label: "Contact",
-      id: "#contact",
+      id: "contact",
       route: "/",
     },
   ];
-
-  function getOffsetTop(element: HTMLElement): number {
-    let offset = element.offsetTop;
-    let parent = element.offsetParent as HTMLElement | null;
-
-    while (parent) {
-      offset += parent.offsetTop;
-      parent = parent.offsetParent as HTMLElement | null;
-    }
-
-    return offset;
-  }
 
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: string | undefined,
     route: string
   ) => {
-    if (route === pathname && id && typeof window !== "undefined") {
-      e.preventDefault();
-      const section = document.querySelector(id) as HTMLElement | null;
-      if (section) {
-        const targetY = getOffsetTop(section);
-        animate(window.scrollY, targetY, {
-          type: "tween",
-          ease: [0.77, -0.02, 0.4, 0.87],
-          duration: 0.8,
-          onUpdate: (latest) => {
-            window.scrollTo(0, latest);
-          },
-        });
+    setMobileNavigationSliderIsOpen(false);
+    e.preventDefault();
+    // Check if the current route is the same as the clicked link's route
+    if (pathname === route) {
+      // If on the same route, scroll smoothly to the section
+      if (id) {
+        const section = document.getElementById(id);
+        if (section) {
+          const yOffset = -72; // Offset value
+          const y =
+            section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
       }
     } else {
-      push(route + id);
+      // If on a different route, navigate to that route
+      push(`${route}#${id}`);
     }
   };
 
@@ -116,23 +106,25 @@ export default function Navigation() {
     >
       <nav className="w-full flex flex-col container">
         {navItems.map(({ label, id, route }) => (
-          <Link
+          <button
             key={label}
-            href={route}
-            className="bg-hover group py-2 px-4 -mx-4"
-            passHref
+            type="button"
+            onClick={(e) => handleClick(e, id, route)}
+            className="text-gray-500 text-lg group-hover:text-black transition-200 bg-hover py-2 px-4 -mx-4 text-start"
           >
-            <button
-              onClick={(e) => handleClick(e, id, route)}
-              className="text-gray-500 text-lg group-hover:text-black transition-200"
-            >
-              {label}
-            </button>
-          </Link>
+            {label}
+          </button>
         ))}
       </nav>
       <div className="border-t py-4 mt-auto flex px-4 justify-center">
-        <Button className=" py-3 px-4 w-full max-w-[350px]" variant="primary" href="/contact">
+        <Button
+          className=" py-3 px-4 w-full max-w-[350px]"
+          variant="primary"
+          onClick={() => {
+            setMobileNavigationSliderIsOpen(false);
+            push(Routes.SCHEDULE)
+          }}
+        >
           Connect with us
         </Button>
       </div>
@@ -151,28 +143,22 @@ export default function Navigation() {
             isOpen={mobileNavigationSliderIsOpen}
             setIsOpen={setMobileNavigationSliderIsOpen}
           />
-          <Logo />
+          <Logo logoClassName="h-9"/>
           <nav className="gap-2 ml-4 items-center hidden lg:flex">
             {navItems.map(({ label, id, route }) => (
-              <Link
+              <button
                 key={label}
-                href={route}
-                className="bg-hover group py-4 px-4"
-                passHref
+                className="bg-hover py-4 px-4 text-gray-700 hover:text-black transition-200 tracking-tight"
+                onClick={(e) => handleClick(e, id, route)}
               >
-                <button
-                  onClick={(e) => handleClick(e, id, route)}
-                  className="text-gray-700 group-hover:text-black transition-200 tracking-tight"
-                >
-                  {label}
-                </button>
-              </Link>
+                {label}
+              </button>
             ))}
           </nav>
           <Button
             className="ml-auto py-3 lg:py-4 px-4"
             variant="primary"
-            href="/contact"
+            href={Routes.SCHEDULE}
           >
             Connect with us
           </Button>

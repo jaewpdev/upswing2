@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/src/components/Button";
+import { Routes } from "@/src/models/routes";
 
 export default function Hero() {
   const dynamicTextAndColors: {
@@ -71,7 +72,7 @@ export default function Hero() {
         quality leads to grow your roofing business effortlessly.
       </p>
 
-      <Button variant="primary" className="py-4 px-4 mt-10">
+      <Button variant="primary" className="py-4 px-4 mt-10" href={Routes.SCHEDULE}>
         Connect with us
       </Button>
     </section>
