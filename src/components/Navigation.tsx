@@ -100,7 +100,7 @@ export default function Navigation() {
 
   const MobileSlideMenu = (
     <div
-      className={`fixed bottom-0 h-screen w-screen  z-40 duration-200 flex flex-col pt-[72px] bg-white ${
+      className={`fixed bottom-0 h-full w-screen  z-40 duration-200 flex flex-col pt-[72px] bg-white ${
         mobileNavigationSliderIsOpen ? "right-0" : "right-full"
       }`}
     >
