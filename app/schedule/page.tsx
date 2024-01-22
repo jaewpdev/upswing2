@@ -21,7 +21,7 @@ export default function SchedulePage() {
 
     // Initialize Calendly widget when the script is loaded
     const checkCalendly = setInterval(() => {
-      if (window.Calendly) {
+      if (window.Calendly && calendlyRef.current) {
         window.Calendly.initInlineWidget({
           url: 'https://calendly.com/useupswing/discovery-call',
           parentElement: calendlyRef.current,
